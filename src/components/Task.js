@@ -1,19 +1,20 @@
-import React, { useCallback } from "react";
+import React from "react";
 
-function Task({ task, onDelete }) {
- const handleDelete = useCallback(() => {
-    onDelete(task.id);
- }, [onDelete, task.id]);
+function Task(props) {
+  const handleDelete = () => {
+    props.onDelete(props.task.id);
+  };
 
- return (
+  return (
     <div className="task">
-      <div className="label">{task.category}</div>
-      <div className="text">{task.text}</div>
+      <div className="label">{props.task.category}</div>
+      <div className="text">{props.task.text}</div>
       <button className="delete" onClick={handleDelete}>
         X
       </button>
     </div>
- );
+  );
 }
 
 export default Task;
+
